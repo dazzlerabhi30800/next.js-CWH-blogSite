@@ -94,6 +94,7 @@ body {
     )
     rgb(var(--background-start-rgb));
   min-height: 100vh;
+  transition: 0.5s linear;
 }
 
 a {
