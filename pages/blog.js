@@ -26,10 +26,10 @@ const Blog = () => {
               <p>This is the blog Based on Anime</p>
             </div>
           </Link>
-          <Link href={"/blogpost/movie-blog"}>
+          <Link href={"/blogpost/manga-blog"}>
             <div className={styles.blog}>
-              <h2>Movie Blog</h2>
-              <p>This is the blog Based on Movie</p>
+              <h2>Manga Blog</h2>
+              <p>This is the blog Based on Manga</p>
             </div>
           </Link>
         </div>

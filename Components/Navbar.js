@@ -16,7 +16,7 @@ const Navbar = ({ setColor }) => {
         <li onClick={() => setColor("#62f7f1")}>
           <Link href="/contact">Contact</Link>
         </li>
-        <li onClick={() => setColor("#62F784")}>
+        <li onClick={() => setColor("#b7fc2e")}>
           <Link href="/blog">Blog</Link>
         </li>
       </ul>

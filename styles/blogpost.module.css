@@ -1,0 +1,15 @@
+.blogpostMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+  padding: 3rem;
+}
+.h1 {
+  font-size: 2rem;
+}
+.p {
+  font-size: 1rem;
+}

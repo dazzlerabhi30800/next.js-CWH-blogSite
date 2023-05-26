@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Navbar setColor={setColor} />
-      <Component {...pageProps} />
+      <Component {...pageProps} color={color} />
       <style jsx global>
         {`
           body {
