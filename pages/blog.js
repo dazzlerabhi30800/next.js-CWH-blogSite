@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/Home.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
 const Blog = () => {
+  const [blogData, setBlogData] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/api/blogs")
+      .then((a) => a.json())
+      .then((a) => setBlogData(a));
+  }, []);
   return (
     <>
       <main className={`${styles.main}`}>
@@ -20,18 +26,18 @@ const Blog = () => {
           alt="home-background"
         />
         <div className={styles.blogGrid}>
-          <Link href={"/blogpost/anime-blog"}>
-            <div className={styles.blog}>
-              <h2>Anime Blog</h2>
-              <p>This is the blog Based on Anime</p>
-            </div>
-          </Link>
-          <Link href={"/blogpost/manga-blog"}>
-            <div className={styles.blog}>
-              <h2>Manga Blog</h2>
-              <p>This is the blog Based on Manga</p>
-            </div>
-          </Link>
+          {blogData.map(
+            ({ title: title, content: content, slug: slug }, index) => {
+              return (
+                <Link href={`/blogpost/${slug}`} key={index}>
+                  <div className={styles.blog}>
+                    <h2>{title}</h2>
+                    <p>{content.substring(0, 130)}...</p>
+                  </div>
+                </Link>
+              );
+            }
+          )}
         </div>
       </main>
     </>

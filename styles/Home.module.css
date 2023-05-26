@@ -21,10 +21,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 6rem;
+  padding: 2rem;
 }
 .logo {
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 700;
 }
 .links {
@@ -79,5 +79,11 @@
 @media (width >= 700px) {
   .blogGrid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .navbar {
+    padding: 2rem 6rem;
+  }
+  .logo {
+    font-size: 2rem;
   }
 }
