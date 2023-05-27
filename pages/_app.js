@@ -5,11 +5,9 @@ import Navbar from "@/Components/Navbar";
 
 export default function App({ Component, pageProps }) {
   const isServer = typeof window === "undefined";
-  // const [color, setColor] = useState("#fb3f68");
   const [color, setColor] = useState(
     !isServer ? localStorage.getItem("bgcolor") : "#fb3f68"
   );
-  // #fb3f68
   useEffect(() => {
     localStorage.setItem("bgcolor", color);
   }, [color]);

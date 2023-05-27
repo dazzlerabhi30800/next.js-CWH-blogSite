@@ -3,12 +3,21 @@ import styles from "../../styles/blogpost.module.css";
 import * as fs from "fs";
 
 const Slug = (props) => {
+  function createMarkup(c) {
+    return { __html: c };
+  }
   const [blog, setBlog] = useState(props.myBlog);
   return (
     <>
       <main className={styles.blogpostMain}>
         <h1 className={styles.h1}>{blog && blog.title}</h1>
-        <p className={styles.p}>{blog && blog.content}</p>
+        {blog && (
+          <div
+            className={styles.p}
+            dangerouslySetInnerHTML={createMarkup(blog.content)}
+          ></div>
+        )}
+        {/* <p className={styles.p}>{blog && blog.content}</p> */}
       </main>
     </>
   );
