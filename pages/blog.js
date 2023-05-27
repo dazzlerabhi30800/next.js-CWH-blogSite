@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "@/styles/Home.module.css";
-import Image from "next/image";
 import Link from "next/link";
+import * as fs from "fs";
 
 const Blog = (props) => {
-  const [blogData, setBlogData] = useState(props.response);
+  const [blogData, setBlogData] = useState(props.allData);
   return (
     <>
       <main className={`${styles.main}`}>
@@ -12,12 +12,12 @@ const Blog = (props) => {
           Blog Page
         </h1>
         <p className={styles.p}>This is the Blog Page of NewBie Coder.</p>
-        <Image
+
+        <img
           className={styles.homeImg}
           width={400}
           height={260}
           src="/blog-image.jpg"
-          priority={true}
           alt="home-background"
         />
         <div className={styles.blogGrid}>
@@ -39,12 +39,26 @@ const Blog = (props) => {
   );
 };
 
-export async function getServerSideProps(context) {
-  let data = await fetch("http://localhost:3000/api/blogs");
-  let response = await data.json();
+export async function getStaticProps(context) {
+  let data = await fs.promises.readdir("blogdata");
+  let myFile;
+  let allData = [];
+  for (let i = 0; i < data.length; i++) {
+    const item = data[i];
+    myFile = await fs.promises.readFile(`blogdata/${item}`, "utf-8");
+    allData.push(JSON.parse(myFile));
+  }
   return {
-    props: { response },
+    props: { allData },
   };
 }
+
+// export async function getServerSideProps(context) {
+//   let data = await fetch("http://localhost:3000/api/blogs");
+//   let response = await data.json();
+//   return {
+//     props: { response },
+//   };
+// }
 
 export default Blog;

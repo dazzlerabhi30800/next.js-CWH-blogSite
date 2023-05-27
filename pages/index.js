@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "../styles/Home.module.css";
-import Image from "next/image";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -23,12 +22,12 @@ export default function Home() {
         <p className={styles.p}>
           This is a Blogging Project by Newbie Coder - Abhishek Choudhary
         </p>
-        <Image
+
+        <img
           className={styles.homeImg}
           width={300}
           height={200}
           src="/home-bg.jpg"
-          priority={true}
           alt="home-background"
         />
       </main>
