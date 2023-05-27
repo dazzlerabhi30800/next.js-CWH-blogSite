@@ -21,7 +21,7 @@ export default function Home() {
       <main className={`${styles.main} ${inter.className}`}>
         <h1 className={styles.h1}>Newbie Coder</h1>
         <p className={styles.p}>
-          This a Project by Newbie Coder - Abhishek Choudhary
+          This is a Blogging Project by Newbie Coder - Abhishek Choudhary
         </p>
         <Image
           className={styles.homeImg}

@@ -3,13 +3,8 @@ import styles from "@/styles/Home.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-const Blog = () => {
-  const [blogData, setBlogData] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:3000/api/blogs")
-      .then((a) => a.json())
-      .then((a) => setBlogData(a));
-  }, []);
+const Blog = (props) => {
+  const [blogData, setBlogData] = useState(props.response);
   return (
     <>
       <main className={`${styles.main}`}>
@@ -43,5 +38,13 @@ const Blog = () => {
     </>
   );
 };
+
+export async function getServerSideProps(context) {
+  let data = await fetch("http://localhost:3000/api/blogs");
+  let response = await data.json();
+  return {
+    props: { response },
+  };
+}
 
 export default Blog;

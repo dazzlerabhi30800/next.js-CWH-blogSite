@@ -4,8 +4,8 @@
   justify-content: flex-start;
   gap: 2rem;
   align-items: center;
+  text-align: center;
   padding: 3rem;
-  /* min-height: 100vh; */
 }
 .h1 {
   font-size: 4rem;
